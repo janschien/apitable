@@ -14,9 +14,9 @@ spring:
       namespace: ${SESSION_NAMESPACE:apitable:session}
     timeout: ${SESSION_TIMEOUT:30d}
   datasource:
-    url: jdbc:mysql://localhost:3306/apitable?characterEncoding=utf8&autoReconnect=true
+    url: jdbc:mysql://192.168.201.149:3306/apitable?characterEncoding=utf8&autoReconnect=true
     username: root
-    password: yanxing1994
+    password: mysql@devenv@666
   # Redis
   redis:
     host: 127.0.0.1
