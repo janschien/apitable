@@ -14,29 +14,28 @@ spring:
       namespace: ${SESSION_NAMESPACE:apitable:session}
     timeout: ${SESSION_TIMEOUT:30d}
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:apitable}?characterEncoding=utf8&autoReconnect=true
-    username: ${MYSQL_USERNAME:root}
-    password: ${MYSQL_PASSWORD:apitable@com}
+    url: jdbc:mysql://localhost:3306/apitable?characterEncoding=utf8&autoReconnect=true
+    username: root
+    password: yanxing1994
   # Redis
   redis:
-    host: ${REDIS_HOST:127.0.0.1}
-    username: ${REDIS_USERNAME:}
-    password: ${REDIS_PASSWORD:apitable@com}
-    port: ${REDIS_PORT:6379}
-    database: ${REDIS_DB:0}
-    timeout: ${REDIS_TIMEOUT:30000}
-    ssl: ${REDIS_SSL_ENABLED:false}
+    host: 127.0.0.1
+    username:
+    password:
+    port: 6379
+    database: 0
+    timeout: 30000
+    ssl: false
   rabbitmq:
-    addresses: amqp://${RABBITMQ_HOST:127.0.0.1}:${RABBITMQ_PORT:5672}
-    username: ${RABBITMQ_USERNAME:apitable}
-    password: ${RABBITMQ_PASSWORD:apitable@com}
+    username: admin
+    password: admin
     publisher-returns: true
     publisher-confirm-type: correlated
     listener:
       simple:
         acknowledge-mode: manual
         prefetch: 5
-    virtual-host: ${RABBITMQ_VHOST:/}
+    virtual-host: /
   mail:
     host: ${MAIL_HOST:smtp.apitable.com}
     username: ${MAIL_USERNAME:support@apitable.com}

@@ -24,24 +24,24 @@ ENV SEMVER_FULL=${SEMVER_FULL}
 CMD ["sh", "-c", "echo \"clearChecksums\"; \
                     docker-entrypoint.sh \
                         --classpath=/liquibase/changelog \
-                        --changelog-file=${CHANGELOG_FILE:=db/changelog/db.changelog-master.xml} \
+                        --changelog-file=db/changelog/db.changelog-master.xml \
                         --log-level=warning \
-                        --username=${DB_USERNAME} \
-                        --password=${DB_PASSWORD} \
+                        --username=root \
+                        --password=mysql@devenv@666 \
                         --driver=\"com.mysql.cj.jdbc.Driver\" \
-                        --database-changelog-table-name=\"${DATABASE_TABLE_PREFIX:=apitable_}db_changelog\" \
-                        --database-changelog-lock-table-name=\"${DATABASE_TABLE_PREFIX:=apitable_}db_changelog_lock\" \
-                        --url=\"jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?characterEncoding=utf8&autoReconnect=true&useSSL=true\" \
+                        --database-changelog-table-name=\"apitable_db_changelog\" \
+                        --database-changelog-lock-table-name=\"apitable_db_changelog_lock\" \
+                        --url=\"jdbc:mysql://192.168.201.149:3306/apitable?characterEncoding=utf8&autoReconnect=true&useSSL=false\" \
                          clearChecksums; \
                     echo ACTION=${ACTION}; docker-entrypoint.sh \
                         --classpath=/liquibase/changelog \
-                        --changelog-file=${CHANGELOG_FILE:=db/changelog/db.changelog-master.xml} \
+                        --changelog-file=db/changelog/db.changelog-master.xml \
                         --log-level=warning \
-                        --username=${DB_USERNAME} \
-                        --password=${DB_PASSWORD} \
+                        --username=root \
+                        --password=mysql@devenv@666 \
                         --driver=\"com.mysql.cj.jdbc.Driver\" \
-                        --database-changelog-table-name=\"${DATABASE_TABLE_PREFIX:=apitable_}db_changelog\" \
-                        --database-changelog-lock-table-name=\"${DATABASE_TABLE_PREFIX:=apitable_}db_changelog_lock\" \
-                        --url=\"jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?characterEncoding=utf8&autoReconnect=true&useSSL=true\" \
+                        --database-changelog-table-name=\"apitable_db_changelog\" \
+                        --database-changelog-lock-table-name=\"apitable_db_changelog_lock\" \
+                        --url=\"jdbc:mysql://192.168.201.149:3306/apitable?characterEncoding=utf8&autoReconnect=true&useSSL=false\" \
                          ${ACTION:=update} \
                         -Dtable.prefix=${DATABASE_TABLE_PREFIX:=apitable_}"]

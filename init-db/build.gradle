@@ -19,15 +19,15 @@ liquibase {
     activities {
         main {
             driver "com.mysql.cj.jdbc.Driver"
-            url "jdbc:mysql://${System.getenv("DB_HOST")}:${System.getenv("DB_PORT")}/${System.getenv("DB_NAME")}?characterEncoding=utf8&autoReconnect=true&useSSL=true"
-            username "${System.getenv("DB_USERNAME")}"
-            password "${System.getenv("DB_PASSWORD")}"
+            url "jdbc:mysql://192.168.201.149:3306/apitable?characterEncoding=utf8&autoReconnect=true&useSSL=false"
+            username "root"
+            password "mysql@devenv@666"
             changelogFile "src/main/resources/db/changelog/db.changelog-master.xml"
             logLevel "warning"
-            changelogParameters(['table.prefix': "${System.getenv("DATABASE_TABLE_PREFIX")}"])
+            changelogParameters(['table.prefix': "apitable_"])
             classpath "src/main/resources/"
-            databaseChangelogTableName "${System.getenv("DATABASE_TABLE_PREFIX")}db_changelog"
-            databaseChangelogLockTableName "${System.getenv("DATABASE_TABLE_PREFIX")}db_changelog_lock"
+            databaseChangelogTableName "apitable_db_changelog"
+            databaseChangelogLockTableName "apitable_db_changelog_lock"
             outputFile "update.sql"
         }
     }
