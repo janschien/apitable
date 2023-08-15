@@ -19,10 +19,10 @@ spring:
     password: mysql@devenv@666
   # Redis
   redis:
-    host: 127.0.0.1
+    host: 192.168.176.128
+    port: 6379
     username:
     password:
-    port: 6379
     database: 0
     timeout: 30000
     ssl: false
@@ -36,6 +36,8 @@ spring:
         acknowledge-mode: manual
         prefetch: 5
     virtual-host: /
+    host: 192.168.176.128
+    port: 5672
   mail:
     host: ${MAIL_HOST:smtp.apitable.com}
     username: ${MAIL_USERNAME:support@apitable.com}

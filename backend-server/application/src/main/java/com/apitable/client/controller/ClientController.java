@@ -43,6 +43,8 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Locale;
+
 /**
  * <p>
  * Client Version Controller.
@@ -91,7 +93,7 @@ public class ClientController {
         } else {
             info.setUserInfo(StrUtil.NULL);
         }
-        info.setLocale(LocaleContextHolder.getLocale().toLanguageTag());
+        info.setLocale(I18nTypes.ZH_CN.getName());
         info.setWizards(
             StrUtil.toString(iSystemConfigService.getWizardConfig(I18nTypes.ZH_CN.getName())));
         return info;
